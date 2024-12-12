@@ -60,7 +60,7 @@ func TestBubbleSort(t *testing.T) {
 				append([]int{}, tt.input...),
 			)
 			if !reflect.DeepEqual(output, tt.expected) {
-				t.Errorf("BubbleSort(%v) = %v; want %v", tt.input, output, tt.expected)
+				t.Errorf("InsertionSort(%v) = %v; want %v", tt.input, output, tt.expected)
 			}
 		})
 	}
@@ -70,7 +70,18 @@ func TestBubbleSort(t *testing.T) {
 				append([]int{}, tt.input...),
 			)
 			if !reflect.DeepEqual(output, tt.expected) {
-				t.Errorf("BubbleSort(%v) = %v; want %v", tt.input, output, tt.expected)
+				t.Errorf("QuickSort(%v) = %v; want %v", tt.input, output, tt.expected)
+			}
+		})
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			output := MergeSort(
+				append([]int{}, tt.input...),
+			)
+			if !reflect.DeepEqual(output, tt.expected) {
+				t.Errorf("MergeSort(%v) = %v; want %v", tt.input, output, tt.expected)
 			}
 		})
 	}
